@@ -34,8 +34,9 @@ keys.map({ "n" }, "<leader>bn", "<cmd>enew<cr>", "New")
 keys.map({ "n" }, "<leader>bo", "<cmd>bp<cr>", "Other Buffer")
 keys.map({ "n" }, "<leader>b<Left>", "<cmd>bp<cr>", "Previous Buffer")
 keys.map({ "n" }, "<leader>bh", "<cmd>bp<cr>", "Previous Buffer")
-keys.map({ "n" }, "<leader>b<Right>", "<cmd>bp<cr>", "Next Buffer")
+keys.map({ "n" }, "<leader>b<Right>", "<cmd>bn<cr>", "Next Buffer")
 keys.map({ "n" }, "<leader>bl", "<cmd>bp<cr>", "Next Buffer")
+keys.map({ "n" }, "<leader>bs", "<cmd>write<cr>", "Write")
 vim.keymap.del({ "n" }, "<leader>bb")
 
 vim.cmd([[
