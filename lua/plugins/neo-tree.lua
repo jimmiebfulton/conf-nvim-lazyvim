@@ -20,7 +20,7 @@ return {
       { "<leader>fE", "<cmd>Neotree focus left reveal<cr>", desc = "Explore in Bar" },
       {
         "<leader>be",
-        "<cmd>Neotree close<cr><cmd>Neotree buffers float focus reveal<cr>",
+        "<cmd>Neotree buffers close<cr><cmd>Neotree buffers float focus reveal<cr>",
         desc = "Explore in Float",
       },
       { "<leader>bE", "<cmd>Neotree buffers left reveal<cr>", desc = "Explore in Bar" },
