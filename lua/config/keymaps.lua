@@ -39,6 +39,8 @@ keys.map({ "n" }, "<leader>bl", "<cmd>bp<cr>", "Next Buffer")
 keys.map({ "n" }, "<leader>bs", "<cmd>write<cr>", "Write")
 vim.keymap.del({ "n" }, "<leader>bb")
 
+keys.map({ "n" }, "<leader>sp", "<cmd>pwd<cr>", "PWD")
+
 vim.cmd([[
 cmap <Down> <C-N>
 cmap <Up> <C-P>
