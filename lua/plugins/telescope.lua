@@ -8,20 +8,37 @@ return {
     keys = {
       { "<leader>bb", "<cmd>Telescope buffers sort_mru=true sort_lastused=true<cr>", desc = "Find Buffers" },
       { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
+      { "<leader>fg", "<cmd>Telescope live_grep<cr>", desc = "Grep Files" },
       { "<leader>fb", "<cmd>Telescope file_browser<cr>", desc = "File Browser" },
-      { "<leader>fp", "<cmd>Telescope project<cr>", desc = "File Browser" },
-      -- {
-      --   "<leader>fp",
-      --   ":lua require'telescope'.extensions.project.project{ display_type = 'full' }<cr>",
-      --   desc = "Projects Browser",
-      -- },
+      {
+        "<leader>fp",
+        ":lua require'telescope'.extensions.project.project{ display_type = 'minimal' }<cr>",
+        desc = "Projects Browser",
+      },
+      { "<leader>su", "<cmd>Telescope undo<cr>", desc = "Undo" },
+      { "<leader>/", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "Fuzzy Find" },
     },
     opts = {
+      defaults = {
+        mappings = {
+          i = {
+            ["<C-c>"] = "close",
+          },
+          n = {
+            ["<C-c>"] = "close",
+          },
+        },
+      },
       extensions = {
+        defaults = {
+          layout_config = {
+            vertical = { width = 0.3 },
+            -- other layout configuration here
+          },
+          -- other defaults configuration here
+        },
         file_browser = {
           theme = "ivy",
-          -- disables netrw and use telescope-file-browser in its place
-          hijack_netrw = true,
           mappings = {
             ["i"] = {
               -- your custom insert mode mappings
@@ -30,30 +47,52 @@ return {
               -- your custom normal mode mappings
             },
           },
+          layout_config = {
+            vertical = { width = 0.9 },
+          },
         },
         project = {
           base_dirs = {
-            { "~/projects/rust", max_depth = 2 },
-            { "~/projects/archetypes/", max_depth = 2 },
-            { "~/orgs/nax-platform/", max_depth = 2 },
+            { path = "~/projects/rust", max_depth = 2 },
+            { path = "~/projects/archetypes/", max_depth = 2 },
+            { path = "~/orgs/nax-platform/", max_depth = 2 },
           },
           hidden_files = false, -- default: false
           theme = "dropdown",
           order_by = "desc",
           search_by = "title",
           -- default for on_project_selected = find project files
-          on_project_selected = function(prompt_bufnr)
-            -- Do anything you want in here. For example:
-            require("telescope._extensions.project.actions").change_working_directory(prompt_bufnr, false)
-          end,
+          -- on_project_selected = function(prompt_bufnr)
+          --   -- Do anything you want in here. For example:
+          --   require("telescope._extensions.project.actions").change_working_directory(prompt_bufnr, true)
+          -- end,
+          layout_config = {
+            vertical = { width = 0.9 },
+          },
+        },
+        undo = {
+          use_delta = true,
+          use_custom_command = nil, -- setting this implies `use_delta = false`. Accepted format is: { "bash", "-c", "echo '$DIFF' | delta" }
+          side_by_side = false,
+          diff_context_lines = vim.o.scrolloff,
+          entry_format = "state #$ID, $STAT, $TIME",
+          time_format = "",
           mappings = {
-            ["i"] = {
-              ["<C-e>"] = function(prompt_bufnr)
-                require("neo-tree").toggle()
+            i = {
+              -- IMPORTANT: Note that telescope-undo must be available when telescope is configured if
+              -- you want to replicate these defaults and use the following actions. This means
+              -- installing as a dependency of telescope in it's `requirements` and loading this
+              -- extension from there instead of having the separate plugin definition as outlined
+              -- above.
+              ["<cr>"] = function()
+                require("telescope-undo.actions").yank_additions()
               end,
-            },
-            ["n"] = {
-              -- your custom normal mode mappings
+              ["<S-cr>"] = function()
+                require("telescope-undo.actions").yank_deletions()
+              end,
+              ["<C-cr>"] = function()
+                require("telescope-undo.actions").restore()
+              end,
             },
           },
         },
@@ -93,6 +132,10 @@ return {
 
   {
     "nvim-telescope/telescope-project.nvim",
+    enabled = true,
+    dependencies = {
+      "nvim-telescope/telescope.nvim",
+    },
     config = function()
       require("telescope").load_extension("project")
     end,
@@ -100,8 +143,21 @@ return {
 
   {
     "lpoto/telescope-docker.nvim",
+    dependencies = {
+      "nvim-telescope/telescope.nvim",
+    },
     config = function()
       require("telescope").load_extension("docker")
+    end,
+  },
+
+  {
+    "debugloop/telescope-undo.nvim",
+    dependencies = {
+      "nvim-telescope/telescope.nvim",
+    },
+    config = function()
+      require("telescope").load_extension("undo")
     end,
   },
 }
