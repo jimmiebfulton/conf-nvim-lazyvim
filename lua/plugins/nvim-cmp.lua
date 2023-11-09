@@ -58,8 +58,8 @@ return {
       opts.mapping = vim.tbl_extend("force", opts.mapping, {
         ["<C-Down>"] = cmp.mapping.scroll_docs(4),
         ["<C-Up>"] = cmp.mapping.scroll_docs(-4),
-        ["<D-Space>"] = cmp.mapping.complete(),
-        ["<S-Space>"] = cmp.mapping.complete(),
+        ["<C-y>"] = cmp.mapping.complete(),
+        ["<C-Space>"] = cmp.mapping.complete(),
         ["<Tab>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
             -- You could replace select_next_item() with confirm({ select = true }) to get VS Code autocompletion behavior
