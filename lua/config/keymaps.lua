@@ -27,16 +27,18 @@ map({ "n" }, "<leader>w<Right>", "<cmd>vsplit<cr>", "Split to Right")
 map({ "n" }, "<leader>wO", "<cmd>only<cr>", "Only")
 map({ "n" }, "<leader>wo", "<C-w>w", "Other Window")
 vim.keymap.del({ "n" }, "<leader>w-")
+vim.keymap.del({ "n" }, "<leader>fc")
 vim.keymap.del({ "n" }, "<leader>w|")
 
 -- Buffers
-map({ "n" }, "<leader>bn", "<cmd>enew<cr>", "New")
+map({ "n" }, "<leader>bn", "<cmd>enew | startinsert<cr>", "New")
 map({ "n" }, "<leader>bo", "<cmd>bp<cr>", "Other Buffer")
 map({ "n" }, "<leader>b<Left>", "<cmd>bp<cr>", "Previous Buffer")
 map({ "n" }, "<leader>bh", "<cmd>bp<cr>", "Previous Buffer")
 map({ "n" }, "<leader>b<Right>", "<cmd>bn<cr>", "Next Buffer")
 map({ "n" }, "<leader>bl", "<cmd>bp<cr>", "Next Buffer")
 map({ "n" }, "<leader>bs", "<cmd>write<cr>", "Write")
+map({ "n" }, "<leader>bk", "<cmd>bufdo bd<cr>", "Kill All Buffers")
 
 map({ "n" }, "<leader>sp", "<cmd>pwd<cr>", "PWD")
 
