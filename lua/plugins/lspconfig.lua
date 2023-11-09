@@ -8,20 +8,21 @@ return {
           keys = {
             { "<leader>dL", "<cmd>RustLastDebug<cr>", desc = "Last Debug (Rust)" },
             { "<leader>cR", "<cmd>RustHoverAction<cr>", desc = "Code Action (Rust)" },
+            { "<leader>ce", "<cmd>RustRunnables<cr>", desc = "Execute Action (Rust)" },
           },
           settings = {
             ["rust-analyzer"] = {
               completion = {
                 snippets = {
                   custom = {
-                    ["println2!"] = {
-                      ["postfix"] = "println2",
-                      ["body"] = {
-                        'println!("$0", ${receiver});',
-                      },
-                      ["description"] = "println!()",
-                      ["scope"] = "expr",
-                    },
+                    -- ["println2!"] = {
+                    --   ["postfix"] = "println2",
+                    --   ["body"] = {
+                    --     'println!("$0", ${receiver});',
+                    --   },
+                    --   ["description"] = "println!()",
+                    --   ["scope"] = "expr",
+                    -- },
                   },
                 },
               },
