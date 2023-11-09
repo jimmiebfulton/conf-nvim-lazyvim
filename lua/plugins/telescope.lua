@@ -7,9 +7,31 @@ return {
     },
     keys = {
       { "<leader>bb", "<cmd>Telescope buffers sort_mru=true sort_lastused=true<cr>", desc = "Find Buffers" },
+      { "<leader>bg", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "Fuzzy Find" },
+
       { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
       { "<leader>fg", "<cmd>Telescope live_grep<cr>", desc = "Grep Files" },
       { "<leader>fb", "<cmd>Telescope file_browser<cr>", desc = "File Browser" },
+      {
+        "<leader>fcn",
+        ":lua require('telescope.builtin').find_files({ cwd = '~/.config/nvim/' })<cr>",
+        desc = "NeoVim",
+      },
+      {
+        "<leader>fcw",
+        ":lua require('telescope.builtin').find_files({ cwd = '~/.config/wezterm/' })<cr>",
+        desc = "WezTerm",
+      },
+      {
+        "<leader>fcf",
+        ":lua require('telescope.builtin').find_files({ cwd = '~/.config/fish/' })<cr>",
+        desc = "Fish",
+      },
+      {
+        "<leader>fca",
+        ":lua require('telescope.builtin').find_files({ cwd = '~/.archetect/etc/' })<cr>",
+        desc = "Archetect",
+      },
       {
         "<leader>fp",
         ":lua require'telescope'.extensions.project.project{ display_type = 'minimal' }<cr>",
@@ -23,9 +45,21 @@ return {
         mappings = {
           i = {
             ["<C-c>"] = "close",
+            ["<C-Left>"] = "preview_scrolling_left",
+            ["<C-Right>"] = "preview_scrolling_right",
+            ["<C-Up>"] = "preview_scrolling_up",
+            ["<C-Down>"] = "preview_scrolling_down",
+            ["<Left>"] = "results_scrolling_left",
+            ["<Right>"] = "results_scrolling_right",
           },
           n = {
             ["<C-c>"] = "close",
+            ["<C-Left>"] = "preview_scrolling_left",
+            ["<C-Right>"] = "preview_scrolling_right",
+            ["<C-Up>"] = "preview_scrolling_up",
+            ["<C-Down>"] = "preview_scrolling_down",
+            ["<Left>"] = "results_scrolling_left",
+            ["<Right>"] = "results_scrolling_right",
           },
         },
       },
@@ -61,11 +95,11 @@ return {
           theme = "dropdown",
           order_by = "desc",
           search_by = "title",
-          -- default for on_project_selected = find project files
-          -- on_project_selected = function(prompt_bufnr)
-          --   -- Do anything you want in here. For example:
-          --   require("telescope._extensions.project.actions").change_working_directory(prompt_bufnr, true)
-          -- end,
+          on_project_selected = function(prompt_bufnr)
+            -- Do anything you want in here. For example:
+            require("telescope._extensions.project.actions").change_working_directory(prompt_bufnr, true)
+            require("telescope.builtin").find_files()
+          end,
           layout_config = {
             vertical = { width = 0.9 },
           },
@@ -115,6 +149,13 @@ return {
       pickers = {
         find_files = {
           mappings = {},
+        },
+        buffers = {
+          mappings = {
+            n = {
+              ["dd"] = "delete_buffer",
+            },
+          },
         },
       },
     },
