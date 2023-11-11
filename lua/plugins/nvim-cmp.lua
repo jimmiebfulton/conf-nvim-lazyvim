@@ -23,6 +23,7 @@ return {
         { name = "nvim_lsp_signature_help" },
         { name = "luasnip", priority = 30 }, -- snippets
         { name = "path" },
+        { name = "copilot" },
       }, {
         { name = "buffer" },
       })
