@@ -12,10 +12,16 @@ map({ "n" }, "<leader>Q", "<cmd>qa!<cr>", "Quit All")
 -- Enable MacOS Word Backspace and Delete
 map({ "i" }, "<M-Bs>", "<C-W>", "Alt Backspace")
 map({ "i" }, "<M-Del>", "<C-O>dw", "Alt Delete")
-map({ "n" }, "<S-Left>", "<C-w>h", "Move Left")
-map({ "n" }, "<S-Right>", "<C-w>l", "Move Left")
-map({ "n" }, "<S-Up>", "<C-w>k", "Move Up")
-map({ "n" }, "<S-Down>", "<C-w>j", "Move Down")
+
+map({ "n" }, "<A-Left>", "<C-w>h", "Move Left")
+map({ "n" }, "<A-Right>", "<C-w>l", "Move Left")
+map({ "n" }, "<A-Up>", "<C-w>k", "Move Up")
+map({ "n" }, "<A-Down>", "<C-w>j", "Move Down")
+map({ "n" }, "<C-A-Left>", "<C-w>>", "Increase Width")
+map({ "n" }, "<C-A-Right>", "<C-w><", "Decrease Width")
+map({ "n" }, "<C-A-Up>", "<C-w>-", "Increase Height")
+map({ "n" }, "<C-A-Down>", "<C-w>+", "Decrease Height")
+
 map({ "n" }, "<leader>w<C-Up>", "<cmd>to split<cr>", "Split to Top")
 map({ "n" }, "<leader>w<C-Down>", "<cmd>bo split<cr>", "Split to Bottom")
 map({ "n" }, "<leader>w<C-Left>", "<cmd>to vsplit<cr>", "Split Left")
@@ -40,7 +46,22 @@ map({ "n" }, "<leader>bl", "<cmd>bp<cr>", "Next Buffer")
 map({ "n" }, "<leader>bs", "<cmd>write<cr>", "Write")
 map({ "n" }, "<leader>bk", "<cmd>bufdo bd<cr>", "Kill All Buffers")
 
+-- Utils
 map({ "n" }, "<leader>sp", "<cmd>pwd<cr>", "PWD")
+
+map(
+  { "n" },
+  "<leader>uW",
+  ":lua vim.cmd('! wezterm cli set-tab-title ' .. vim.fs.basename(vim.loop.cwd()))<cr>",
+  "Wezterm Title"
+)
+
+-- Tools
+map({ "n" }, "<leader>Tt", ":lua require('lazyvim.util').terminal( { 'btop'})<cr>", "btop")
+map({ "n" }, "<leader>Tk", ":lua require('lazyvim.util').terminal( { 'k9s'})<cr>", "k9s")
+
+-- Git
+map({ "n" }, "<leader>gu", ":lua require('lazyvim.util').terminal( { 'gitui'})<cr>", "gitui")
 
 vim.cmd([[
 cmap <Down> <C-N>
