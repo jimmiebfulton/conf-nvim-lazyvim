@@ -48,21 +48,4 @@ return {
       },
     },
   },
-
-  -- Snacks utils
-  {
-    "folke/snacks.nvim",
-    opts = {
-      terminal = {
-        enabled = false,
-      },
-    },
-    keys = {
-      {
-        "<leader>ft",
-        group = "terminal",
-        desc = "Terminal",
-      },
-    },
-  },
 }

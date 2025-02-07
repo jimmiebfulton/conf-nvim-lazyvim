@@ -12,6 +12,9 @@ return {
           },
         },
       },
+      terminal = {
+        enabled = false,
+      },
     },
     -- stylua: ignore
     keys = {
