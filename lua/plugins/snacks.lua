@@ -5,16 +5,31 @@ return {
       explorer = {
         replace_netrw = false,
       },
+      picker = {
+        formatters = {
+          file = {
+            truncate = 50,
+          },
+        },
+      },
     },
     -- stylua: ignore
     keys = {
-      { "<leader>fe", function() Snacks.picker.explorer({ layout = "default", auto_close = true }) end, desc = "Explorer" },
+      { "<leader>fs", function() Snacks.picker.spelling() end, desc = "Spelling" },
+      { "<leader>fe", function() Snacks.picker.explorer({ layout = "default", auto_close = true, focus = "input" }) end, desc = "Explorer" },
       { "<leader>fE", function() Snacks.picker.explorer() end, desc = "Explorer Sidebar" },
+      { "<leader>e", function() Snacks.picker.explorer({ layout = "default", auto_close = true, focus = "input" }) end, desc = "Explorer" },
+      { "<leader>E", function() Snacks.picker.explorer() end, desc = "Explorer Sidebar" },
+      { "<leader>fF", LazyVim.pick("files"), desc = "Find Files (Root Dir)" },
+      { "<leader>ff", LazyVim.pick("files", { root = false }), desc = "Find Files (cwd)" },
       { "<leader>fc", desc = "Config" },
       { "<leader>fcc", function() Snacks.picker.files({ dirs = { "~/.config/", }}) end, desc = "Config" },
       { "<leader>fcn", function() Snacks.picker.files({ dirs = { "~/.config/nvim/", }}) end, desc = "Neovim" },
       { "<leader>fcf", function() Snacks.picker.files({ dirs = { "~/.config/fish/", }}) end, desc = "Fish" },
       { "<leader>fcy", function() Snacks.picker.files({ dirs = { "~/.config/yazi/", }}) end, desc = "Yazi" },
+      { "<leader>fcw", function() Snacks.picker.files({ dirs = { "~/.config/wezterm/", }}) end, desc = "Wezterm" },
+      { "<leader>sd",  function() Snacks.picker.diagnostics() end, desc = "Diagnostics (Workspace)" },
+      { "<leader>sD",  function() Snacks.picker.diagnostics_buffer() end, desc = "Diagnostics (Buffer)" },
       { "<leader>sp",  function() Snacks.picker.pick() end, desc = "Pickers" },
       { "<leader>sP",  function() Snacks.picker.picker_layouts() end, desc = "Picker Layouts" },
       { "<leader>sz",  function() Snacks.picker.zoxide() end, desc = "Zoxide" },
