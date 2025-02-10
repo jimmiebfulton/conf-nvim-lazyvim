@@ -7,7 +7,6 @@ return {
     opts = {
       autochdir = true,
       persist_mode = true,
-      -- shell = "/opt/homebrew/bin/nu",
       shell = vim.o.shell,
       hide_numbers = true,
       start_in_insert = false,
