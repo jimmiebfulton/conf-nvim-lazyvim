@@ -3,15 +3,28 @@ return {
   {
     "akinsho/toggleterm.nvim",
     version = "*",
+    lazy = false,
     opts = {
       autochdir = true,
       persist_mode = true,
+      -- shell = "/opt/homebrew/bin/nu",
+      shell = vim.o.shell,
+      hide_numbers = true,
+      start_in_insert = false,
+      on_create = function()
+        vim.cmd([[ setlocal signcolumn=no ]])
+      end,
     },
     keys = {
       {
         "<c-/>",
         "<cmd>9ToggleTerm direction=float<cr>",
         desc = "Terminal Float",
+      },
+      {
+        "<c-.>",
+        "<cmd>ToggleTerm<cr>",
+        desc = "Terminal Toggle",
       },
       {
         "<leader>ft",
