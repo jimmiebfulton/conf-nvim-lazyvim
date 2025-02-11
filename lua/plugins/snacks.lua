@@ -36,7 +36,7 @@ return {
       { "<leader>fP", "<cmd>pwd<cr>", desc = "PWD" },
       { "<leader>sd",  function() Snacks.picker.diagnostics() end, desc = "Diagnostics (Workspace)" },
       { "<leader>sD",  function() Snacks.picker.diagnostics_buffer() end, desc = "Diagnostics (Buffer)" },
-      { "<leader>sl",  function() Snacks.picker.lines() end, desc = "Lines" },
+      { "<leader>sl",  function() Snacks.picker.lines({ sort = { fields = { "idx"}}}) end, desc = "Lines" },
       { "<leader>sL",  function() Snacks.picker.loclist() end, desc = "Location List" },
       { "<leader>sp",  function() Snacks.picker.pick() end, desc = "Pickers" },
       { "<leader>sP",  function() Snacks.picker.picker_layouts() end, desc = "Picker Layouts" },
