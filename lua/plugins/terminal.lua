@@ -9,7 +9,7 @@ return {
       persist_mode = true,
       shell = vim.o.shell,
       hide_numbers = true,
-      start_in_insert = false,
+      start_in_insert = true,
       on_create = function()
         vim.cmd([[ setlocal signcolumn=no ]])
       end,
@@ -17,33 +17,21 @@ return {
     keys = {
       {
         "<c-/>",
-        "<cmd>9ToggleTerm direction=float<cr>",
+        "<cmd>9ToggleTerm size=35 direction=float<cr>",
         desc = "Terminal Float",
+        mode = { "n", "t" },
       },
       {
         "<c-.>",
-        "<cmd>ToggleTerm<cr>",
+        "<cmd>5ToggleTerm size=35 direction=horizontal<cr>",
         desc = "Terminal Toggle",
+        mode = { "n", "t" },
       },
       {
-        "<leader>ft",
-        "<cmd>ToggleTerm<cr>",
+        "<c-,>",
+        "<cmd>6ToggleTerm direction=tab<cr><cmd>7ToggleTerm direction=horizontal<cr><cmd>8ToggleTerm direction=vertical<cr>",
         desc = "Terminal Toggle",
-      },
-      {
-        "<leader>fT1",
-        "<cmd>8ToggleTerm direction=tab<cr>",
-        desc = "Layout: 1 Pane",
-      },
-      {
-        "<leader>fT2",
-        "<cmd>8ToggleTerm direction=tab<cr><cmd>1ToggleTerm direction=horizontal<cr>",
-        desc = "Layout: 2 Panes",
-      },
-      {
-        "<leader>fT3",
-        "<cmd>8ToggleTerm direction=tab<cr><cmd>1ToggleTerm direction=horizontal<cr><cmd>2ToggleTerm direction=vertical<cr>",
-        desc = "Layout: 3 Panes",
+        mode = { "n", "t" },
       },
     },
   },
