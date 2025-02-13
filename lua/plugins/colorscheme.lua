@@ -7,10 +7,19 @@ return {
     },
   },
 
-  { "EdenEast/nightfox.nvim" }, -- lazy
+  {
+    "EdenEast/nightfox.nvim",
+    priority = 1000,
+  },
+
+  {
+    "olimorris/onedarkpro.nvim",
+    priority = 1000, -- Ensure it loads first
+  },
 
   {
     "rebelot/kanagawa.nvim",
+    priority = 1000,
     opts = {
       background = { -- map the value of 'background' option to a theme
         dark = "dragon", -- try "dragon" !
@@ -19,7 +28,14 @@ return {
     },
   },
 
-  { "projekt0n/github-nvim-theme", name = "github-theme" },
+  {
+    "projekt0n/github-nvim-theme",
+    name = "github-theme",
+    priority = 1000,
+  },
 
-  { "marko-cerovac/material.nvim" },
+  {
+    "marko-cerovac/material.nvim",
+    priority = 1000,
+  },
 }
