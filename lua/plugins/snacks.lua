@@ -33,7 +33,6 @@ return {
       { "<leader>fcs", function() Snacks.picker.files({ dirs = { "~/.config/starship/", }}) end, desc = "Starship" },
       { "<leader>fcy", function() Snacks.picker.files({ dirs = { "~/.config/yazi/", }}) end, desc = "Yazi" },
       { "<leader>fcw", function() Snacks.picker.files({ dirs = { "~/.config/wezterm/", }}) end, desc = "Wezterm" },
-      { "<leader>fP", "<cmd>pwd<cr>", desc = "PWD" },
       { "<leader>sd",  function() Snacks.picker.diagnostics() end, desc = "Diagnostics (Workspace)" },
       { "<leader>sD",  function() Snacks.picker.diagnostics_buffer() end, desc = "Diagnostics (Buffer)" },
       { "<leader>sl",  function() Snacks.picker.lines({ sort = { fields = { "idx"}}}) end, desc = "Lines" },

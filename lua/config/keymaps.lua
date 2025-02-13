@@ -4,3 +4,6 @@
 
 -- Escape terminal mode
 vim.api.nvim_set_keymap("t", "<Leader><ESC>", "<C-\\><C-n>", { noremap = true })
+
+vim.keymap.set("n", "<leader>ip", "<cmd>pwd<cr>")
+vim.keymap.set("n", "<leader>iP", "<c-g>")
