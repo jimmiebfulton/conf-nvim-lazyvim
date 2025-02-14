@@ -3,7 +3,7 @@ return {
     "folke/flash.nvim",
     opts = {
       jump = {
-        autojump = true,
+        autojump = false,
       },
       label = {
         after = true,
@@ -27,8 +27,8 @@ return {
         },
       },
       remote_op = {
-        restore = false,
-        motion = true,
+        restore = true,
+        motion = nil,
       },
     },
   },
