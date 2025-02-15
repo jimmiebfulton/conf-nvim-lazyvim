@@ -6,7 +6,7 @@ vim.g.lazyvim_picker = "snacks"
 vim.opt.timeoutlen = 500
 vim.g.loaded_netrwPlugin = 1
 vim.g.loaded_netrw = 1
-vim.o.shell = "/opt/homebrew/bin/nu"
+vim.o.shell = "nu"
 vim.wo.signcolumn = "auto:2"
 
 if vim.g.neovide then
