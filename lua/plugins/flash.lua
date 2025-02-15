@@ -14,7 +14,7 @@ return {
         },
       },
       highlight = {
-        backdrop = false,
+        backdrop = true,
         matches = false,
       },
       modes = {
