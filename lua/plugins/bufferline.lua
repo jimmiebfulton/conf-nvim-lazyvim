@@ -12,7 +12,7 @@ return {
     },
     opts = {
       options = {
-        always_show_bufferline = true,
+        always_show_bufferline = false,
         separator_style = "slope",
         auto_toggle_bufferline = true,
         enforce_regular_tabs = false,
