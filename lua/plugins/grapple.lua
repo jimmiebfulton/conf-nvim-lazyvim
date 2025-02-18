@@ -7,11 +7,11 @@ return {
     event = { "BufReadPost", "BufNewFile" },
     cmd = "Grapple",
     keys = {
-      { "<leader>m", desc = "Grapple" },
-      { "<leader>mM", "<cmd>Grapple toggle<cr>", desc = "Grapple Toggle Tag" },
-      { "<leader>mm", "<cmd>Grapple toggle_tags<cr>", desc = "Grapple Open Tags" },
-      { "<leader>mn", "<cmd>Grapple cycle_tags next<cr>", desc = "Grapple Next Tag" },
-      { "<leader>mp", "<cmd>Grapple cycle_tags prev<cr>", desc = "Grapple Prev Tag" },
+      { "<leader>G", desc = "Grapple" },
+      { "<leader>Gg", "<cmd>Grapple toggle<cr>", desc = "Grapple Toggle Tag" },
+      { "<leader>GG", "<cmd>Grapple toggle_tags<cr>", desc = "Grapple Open Tags" },
+      { "<leader>Gn", "<cmd>Grapple cycle_tags next<cr>", desc = "Grapple Next Tag" },
+      { "<leader>Gp", "<cmd>Grapple cycle_tags prev<cr>", desc = "Grapple Prev Tag" },
     },
   },
 }
