@@ -6,7 +6,7 @@ return {
         { "<leader>G", icon = "🪝", desc = "Grapple" },
         { "<leader>i", icon = "", desc = "Info" },
         { "<leader>j", icon = "", desc = "JJ" },
-        { "<leader>m", icon = "󰗧", desc = "Cursors" },
+        { "<leader>m", icon = "󰗧", desc = "Multicursors" },
         { "<leader>ip", "<cmd>pwd<cr>", icon = "", desc = "PWD" },
         { "<leader>iP", "<c-g>", icon = "", desc = "File Path" },
       },
