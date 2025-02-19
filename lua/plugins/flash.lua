@@ -28,7 +28,7 @@ return {
       },
       remote_op = {
         restore = true,
-        motion = false,
+        motion = true,
       },
     },
   },
