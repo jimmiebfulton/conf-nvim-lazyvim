@@ -63,7 +63,6 @@ return {
       keymap = {
         -- preset = "cmdline",
         preset = "super-tab",
-        ["<CR>"] = { "accept_and_enter", "fallback" },
         ["<Up>"] = { "select_prev" },
         ["<C-k>"] = { "select_prev" },
         ["<Down>"] = { "select_next" },
