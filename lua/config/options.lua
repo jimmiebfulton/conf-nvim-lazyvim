@@ -18,3 +18,22 @@ if vim.g.neovide then
   vim.g.neovide_normal_opacity = 0.95
   vim.g.neovide_input_macos_option_key_is_meta = "only_left"
 end
+
+-- vim.g.firenvim_config = {
+--   globalSettings = { alt = "all" },
+--   localSettings = {
+--     [".*"] = {
+--       cmdline = "firenvim",
+--       content = "text",
+--       priority = 0,
+--       selector = "textarea",
+--       takeover = "always",
+--     },
+--   },
+-- }
+--
+-- if vim.g.started_by_firenvim == true then
+--   vim.o.laststatus = 0
+-- else
+--   vim.o.laststatus = 2
+-- end
