@@ -10,6 +10,22 @@ return {
   {
     "EdenEast/nightfox.nvim",
     priority = 1000,
+    opts = {
+      options = {
+        dim_inactive = true,
+        transparent = false,
+        styles = {
+          comments = "italic",
+          keywords = "bold",
+          types = "italic,bold",
+        },
+        inverse = { -- Inverse highlight for different types
+          match_paren = true,
+          visual = false,
+          search = false,
+        },
+      },
+    },
   },
 
   {
