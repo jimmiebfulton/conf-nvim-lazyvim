@@ -20,7 +20,7 @@ return {
     keys = {
       { "<leader>fs", function() Snacks.picker.spelling() end, desc = "Spelling" },
       { "<leader>fe", function() Snacks.picker.explorer({ layout = "default", auto_close = true, focus = "input" }) end, desc = "Explorer" },
-      { "<leader>fE", function() Snacks.picker.explorer() end, desc = "Explorer Sidebar" },
+      { "<leader>fE", function() Snacks.picker.explorer({ focus = "input", auto_close = true, }) end, desc = "Explorer Sidebar" },
       { "<leader>e", function() Snacks.picker.explorer({ layout = "default", auto_close = true }) end, desc = "Explorer" },
       { "<leader>E", function() Snacks.picker.explorer() end, desc = "Explorer Sidebar" },
       { "<leader>fF", LazyVim.pick("files"), desc = "Find Files (Root Dir)" },
