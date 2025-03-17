@@ -56,7 +56,11 @@ return {
         show_in_snippet = true,
       },
     },
-    signature = { enabled = false },
+    sources = {
+      default = { "lsp", "path", "snippets", "buffer" },
+    },
+
+    signature = { enabled = true },
 
     cmdline = {
       enabled = true,
@@ -97,19 +101,6 @@ return {
         menu = { auto_show = true },
         -- Displays a preview of the selected item on the current line
         ghost_text = { enabled = true },
-      },
-    },
-    sources = {
-      providers = {
-        cmdline = {
-          -- min_keyword_length = function(ctx)
-          --   -- when typing a command, only show when the keyword is 3 characters or longer
-          --   if ctx.mode == "cmdline" and string.find(ctx.line, " ") == nil then
-          --     return 3
-          --   end
-          --   return 0
-          -- end,
-        },
       },
     },
   },
