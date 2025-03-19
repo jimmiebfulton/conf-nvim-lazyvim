@@ -20,7 +20,7 @@ return {
           types = "italic,bold",
         },
         inverse = { -- Inverse highlight for different types
-          match_paren = true,
+          match_paren = false,
           visual = false,
           search = false,
         },
