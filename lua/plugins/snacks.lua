@@ -41,7 +41,8 @@ return {
       { "<leader>sP",  function() Snacks.picker.picker_layouts() end, desc = "Picker Layouts" },
       { "<leader>sz",  function() Snacks.picker.zoxide() end, desc = "Zoxide" },
       { "<leader>sZ",  function() Snacks.picker.lazy() end, desc = "Lazy" },
-      { "<leader><space>", function() Snacks.picker.smart() end, desc = "Smart" },
+      { "<leader>fS", function() Snacks.picker.smart() end, desc = "Smart" },
+      { "<leader><space>", function() require('nvim-window').pick() end, desc = "Select Window" },
     },
   },
 }
