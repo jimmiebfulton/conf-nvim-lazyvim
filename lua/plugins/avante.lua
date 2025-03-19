@@ -8,7 +8,7 @@ return {
     opts = {
       -- add any opts here
       -- for example
-      provider = "copilot",
+      provider = "claude",
       openai = {
         endpoint = "https://api.openai.com/v1",
         model = "gpt-4o", -- your desired model (or use gpt-4o, etc.)
@@ -17,6 +17,15 @@ return {
         max_tokens = 4096,
         -- reasoning_effort = "high" -- only supported for reasoning models (o1, etc.)
       },
+      claude = {
+        endpoint = "https://api.anthropic.com",
+        model = "claude-3-5-sonnet-20241022",
+        timeout = 30000, -- Timeout in milliseconds
+        temperature = 0,
+        max_tokens = 4096,
+        disable_tools = true, -- disable tools!
+      },
+      disabled_tools = { "python" },
     },
     -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
     build = "make",
@@ -26,8 +35,9 @@ return {
       "stevearc/dressing.nvim",
       "nvim-lua/plenary.nvim",
       "MunifTanjim/nui.nvim",
+      "nvim-telescope/telescope.nvim",
       --- The below dependencies are optional,
-      "echasnovski/mini.pick", -- for file_selector provider mini.pick
+      -- "echasnovski/mini.pick", -- for file_selector provider mini.pick
       "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
       "zbirenbaum/copilot.lua", -- for providers='copilot'
       {
