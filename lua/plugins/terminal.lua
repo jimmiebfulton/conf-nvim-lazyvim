@@ -1,13 +1,12 @@
 return {
-
   {
     "akinsho/toggleterm.nvim",
     version = "*",
     lazy = false,
     opts = {
       autochdir = true,
-      persist_mode = true,
-      shell = vim.o.shell,
+      persist_mode = false,
+      shell = "/opt/homebrew/bin/nu",
       hide_numbers = true,
       start_in_insert = true,
       on_create = function()
@@ -23,15 +22,25 @@ return {
       },
       {
         "<c-,>",
-        "<cmd>7ToggleTerm size=35 direction=horizontal name=Left<cr>",
+        function()
+          require("toggleterm").toggle(7, 35, nil, "horizontal", "Left")
+        end,
         desc = "Terminal Toggle",
         mode = { "n" },
       },
       {
         "<c-.>",
-        "<cmd>8ToggleTerm size=35 direction=horizontal name=Right<cr>",
+        function()
+          require("toggleterm").toggle(8, 35, nil, "horizontal", "Right")
+        end,
         desc = "Terminal Toggle",
         mode = { "n" },
+      },
+      {
+        "<c-h>",
+        "<cmd>wincmd h<cr>",
+        desc = "Window Left",
+        mode = { "t" },
       },
       {
         "<c-j>",
@@ -46,16 +55,34 @@ return {
         mode = { "t" },
       },
       {
-        "<c-.>",
-        "<cmd>ToggleTermToggleAll<cr>",
-        desc = "Terminal Toggle",
+        "<c-l>",
+        "<cmd>wincmd l<cr>",
+        desc = "Window Right",
         mode = { "t" },
       },
       {
         "<c-,>",
-        "<cmd>ToggleTermToggleAll<cr>",
+        function()
+          require("toggleterm").toggle(7, 35, nil, "horizontal", "Left")
+        end,
         desc = "Terminal Toggle",
         mode = { "t" },
+      },
+      {
+        "<c-.>",
+        function()
+          require("toggleterm").toggle(8, 35, nil, "horizontal", "Right")
+        end,
+        desc = "Terminal Toggle",
+        mode = { "t" },
+      },
+      {
+        "<c-\\>",
+        function()
+          require("toggleterm").toggle_all(nil)
+        end,
+        desc = "Terminal Toggle",
+        mode = { "n", "t" },
       },
     },
   },
