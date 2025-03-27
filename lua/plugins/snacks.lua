@@ -11,6 +11,45 @@ return {
             truncate = 50,
           },
         },
+        win = {
+          list = {
+            -- keys = {
+            --   ["<S-CR>"] = {
+            --     -- {
+            --     function()
+            --       local picker = require("window-picker")
+            --
+            --       local window_id = picker.pick_window()
+            --       if window_id then
+            --         vim.api.nvim_set_current_win(window_id)
+            --       end
+            --     end,
+            --     -- "jump",
+            --     -- },
+            --   },
+            -- },
+          },
+        },
+        -- win = {
+        --   input = {
+        --     keys = {
+        --       ["<S-CR>"] = {
+        --         {
+        --           function()
+        --             local picker = require("window-picker")
+        --
+        --             local window_id = picker.pick_window()
+        --             if window_id then
+        --               vim.api.nvim_set_current_win(window_id)
+        --             end
+        --           end,
+        --           "jump",
+        --         },
+        --         mode = { "n", "i" },
+        --       },
+        --     },
+        --   },
+        -- },
       },
       terminal = {
         enabled = false,

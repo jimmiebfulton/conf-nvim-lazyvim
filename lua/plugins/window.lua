@@ -1,6 +1,43 @@
 return {
   {
+    "s1n7ax/nvim-window-picker",
+    enabled = true,
+    name = "window-picker",
+    event = "VeryLazy",
+    version = "2.*",
+    config = function()
+      local picker = require("window-picker")
+
+      picker.setup({
+        -- Use "floating-big-letter" for mnemonic letters
+        -- hint = "floating-big-letter",
+        hint = "floating-letter",
+        show_prompt = true,
+
+        -- Customize your mnemonic keys - these are home row keys on QWERTY
+        selection_chars = "FJDKSLA;CMRUEIWOQP",
+      })
+
+      -- Add keybinding to pick a window
+      vim.keymap.set("n", "<leader>wp", function()
+        local window_id = picker.pick_window()
+        if window_id then
+          vim.api.nvim_set_current_win(window_id)
+        end
+      end, { desc = "Switch Window Select" })
+
+      vim.keymap.set("n", "<leader>wc", function()
+        local window_id = picker.pick_window()
+        if window_id then
+          vim.api.nvim_win_close(window_id, false)
+        end
+      end, { desc = "Close Window Select" })
+    end,
+  },
+
+  {
     "yorickpeterse/nvim-window",
+    enabled = true,
     lazy = false,
     priority = 1000,
     keys = {
@@ -26,32 +63,24 @@ return {
       --   allowing you to show the hints in a status or winbar line
       render = "float",
       chars = {
-        "a",
-        "b",
-        "c",
-        "d",
-        "e",
         "f",
-        "g",
-        "h",
-        "i",
         "j",
+        "d",
         "k",
-        "l",
-        "m",
-        "n",
-        "o",
-        "p",
-        "q",
-        "r",
         "s",
-        "t",
+        "l",
+        "a",
+        ";",
+        "c",
+        "m",
+        "r",
         "u",
-        "v",
+        "e",
+        "i",
         "w",
-        "x",
-        "y",
-        "z",
+        "o",
+        "q",
+        "p",
       },
     },
   },
