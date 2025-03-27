@@ -15,7 +15,7 @@ return {
         show_prompt = true,
 
         -- Customize your mnemonic keys - these are home row keys on QWERTY
-        selection_chars = "FJDKSLA;CMRUEIWOQP",
+        selection_chars = "fjdksla;cmrueiwoqp",
       })
 
       -- Add keybinding to pick a window
